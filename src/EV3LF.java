@@ -62,6 +62,8 @@ public class EV3LF {
 			
 			else
 			{
+				largeMotorC.setSpeed(20);
+				largeMotorB.setSpeed(20);
 				largeMotorB.backward();
 				largeMotorC.backward();
 			}
