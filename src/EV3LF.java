@@ -8,9 +8,11 @@ import lejos.hardware.sensor.EV3ColorSensor;
 import lejos.hardware.sensor.SensorMode;
 import lejos.robotics.RegulatedMotor;
 import lejos.utility.Delay;
+import java.util.Timer; 
+import java.util.TimerTask;
 
 public class EV3LF {
-
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		EV3ColorSensor colorSensor = new EV3ColorSensor(SensorPort.S3);
@@ -57,6 +59,7 @@ public class EV3LF {
 				largeMotorC.forward();
 				largeMotorB.setSpeed(20);
 	 			largeMotorB.forward();
+				Delay.msDelay(1000);
 			}
 			
 			else
