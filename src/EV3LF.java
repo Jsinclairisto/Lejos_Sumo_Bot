@@ -54,9 +54,9 @@ public class EV3LF {
 			
 			if(avgColor <= sampleWhite[0]){
 				
-				largeMotorC.setSpeed(new Float(cSpeed).intValue());
+				largeMotorC.setSpeed(20);
 				largeMotorC.forward();
-				largeMotorB.setSpeed(new Float(bSpeed).intValue());
+				largeMotorB.setSpeed(20);
 	 			largeMotorB.forward();
 			}
 			
