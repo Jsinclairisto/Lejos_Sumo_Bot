@@ -59,7 +59,7 @@ public class EV3LF {
 				largeMotorC.forward();
 				largeMotorB.setSpeed(20);
 	 			largeMotorB.forward();
-				Delay.msDelay(1000);
+				Delay.msDelay(500);
 			}
 			
 			else
