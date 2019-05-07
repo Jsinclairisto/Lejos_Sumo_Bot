@@ -53,7 +53,6 @@ public class EV3LF {
 			
 			
 			if(avgColor <= sampleWhite[0]){
-				
 				largeMotorC.setSpeed(20);
 				largeMotorC.forward();
 				largeMotorB.setSpeed(20);
