@@ -1,3 +1,5 @@
+package sumo_bot;
+
 import lejos.hardware.Button;
 import lejos.hardware.Sound;
 import lejos.hardware.lcd.LCD;
@@ -11,7 +13,7 @@ import lejos.utility.Delay;
 import java.util.Timer; 
 import java.util.TimerTask;
 
-public class EV3LF {
+public class EV3LF4 {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -43,6 +45,10 @@ public class EV3LF {
 		float[] color = new float[1];
 
 		while (!Button.ESCAPE.isDown()) {
+			
+			mode.fetchSample(sampleBlack, 0);
+			mode.fetchSample(sampleWhite, 0);
+			
 
 			float avgLight = (sampleBlack[0] + sampleWhite[0]) / 2;
 			float avgColor =(sampleBlack[0] + sampleWhite[0]) / 2;
@@ -53,19 +59,21 @@ public class EV3LF {
 			float bSpeed = defaultPower - multiplyingFactor * (avgLight - color[0])
 					/ (sampleWhite[0] - sampleBlack[0]);
 			
-			
-			if(avgColor <= sampleWhite[0]){
-				largeMotorC.setSpeed(100);
+//			System.out.println(sampleBlack[0]);
+//			System.out.println(sampleWhite[0]);
+			System.out.println(avgColor);
+			if(avgColor <= 0.06){
+				largeMotorC.setSpeed(300);
 				largeMotorC.forward();
-				largeMotorB.setSpeed(100);
+				largeMotorB.setSpeed(300);
 	 			largeMotorB.forward();
-				Delay.msDelay(1000);
+				Delay.msDelay(2000);
 			}
 			
 			else
 			{
-				largeMotorC.setSpeed(20);
-				largeMotorB.setSpeed(20);
+				largeMotorC.setSpeed(75);
+				largeMotorB.setSpeed(75);
 				largeMotorB.backward();
 				largeMotorC.backward();
 				Delay.msDelay(500);
